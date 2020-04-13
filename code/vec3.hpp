@@ -1,3 +1,6 @@
+#ifndef __VEC3_H__
+#define __VEC3_H__
+
 #include <math.h>
 #include <stdlib.h>
 #include <iostream>
@@ -12,6 +15,16 @@ class vec3 {
             e_[2] = e2;
         }
 
+        float& operator[] (int index) {
+            if (index > 2) {
+                throw std::runtime_error(
+                    "index out of bound, only care about 3-dimension for now");
+            }
+            return e_[index];
+        }
+
     private:
         float e_[3];
 };
+
+#endif
